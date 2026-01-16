@@ -50,7 +50,7 @@ def collate_fn(batch):
         return {"image": images, "mask": masks.long()}
 
 # Create training and validation dataloaders
-def Create_dataloaders(
+def create_dataloaders(
     data_deep,
     labels_deep,
     data_validation,
@@ -286,7 +286,7 @@ def main():
     # Set computing device: GPU or CPU
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-    train_loader, val_loader = Create_dataloaders(
+    train_loader, val_loader = create_dataloaders(
     data_deep,
     labels_deep,
     data_validation,
