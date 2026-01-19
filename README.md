@@ -1,4 +1,6 @@
-# Exercise materials for LUMI AIF x FMI course
+# Exercise materials for  Applying machine learning methods in research 
+## Training for FMI employees, organized together with CSC
+
 
 ## Day 1
 
