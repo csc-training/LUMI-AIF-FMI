@@ -1,28 +1,25 @@
-from torch.utils.data import DataLoader
 import torch
 from torch import nn
-from tqdm import tqdm
+from torch.utils.data import DataLoader
+from torch_blue import vi
 
 from dataset import HousingDataset
 
 
-class Model(nn.Module):
+class Model(vi.VIModule):
     def __init__(self):
         super().__init__()
-        n1 = nn.BatchNorm1d(8)
-        l1 = nn.Linear(8, 16)
-        a1 = nn.ReLU()
-        l2 = nn.Linear(16, 16)
-        a2 = nn.ReLU()
-        l3 = nn.Linear(16, 1)
-        self.f = nn.Sequential(n1, l1, a1, l2, a2, l3, nn.Flatten())
-
+        self.f = nn.Sequential(
+            nn.BatchNorm1d(8),
+            vi.VILinear(8, 16),
+            nn.ReLU(),
+            vi.VILinear(16, 16),
+            nn.ReLU(),
+            vi.VILinear(16, 1),
+            nn.Flatten(),
+        )
     def forward(self, x):
-        # TODO then add an embedding module to your network (see torch.nn.Embedding)
-        # TODO concatenate or add the embedding to the input vector
-        # TODO does including the ocean_proximity information improve performance?
         return self.f(x)
-
 
 def main():
     epochs = 2
@@ -33,8 +30,14 @@ def main():
     # TODO split into training and test data
     dl = DataLoader(ds, batch_size=batch_size)
     model = Model().to(device)
-    loss_fn = nn.MSELoss()
-    optim = torch.optim.Adam(model.parameters(), lr=learning_rate)
+    # NOTE return log probs of weights needed by KL loss
+    model.return_log_probs = True
+    model.train()
+    print(model)
+
+    predictive_distribution = vi.distributions.Normal()
+    loss_fn = vi.KullbackLeiblerLoss(predictive_distribution, dataset_size=len(ds))
+    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
     for epoch in range(epochs):
         # for step, batch in enumerate(tqdm(dl)):
@@ -43,11 +46,11 @@ def main():
             x = x.to(device)
             y = y.to(device)
 
-            optim.zero_grad()
+            optimizer.zero_grad()
             pred = model(x)
             loss = loss_fn(pred, y)
             loss.backward()
-            optim.step()
+            optimizer.step()
             print(loss/(torch.sum(y)/batch_size))
         print(loss/(torch.sum(y)/batch_size))
 
