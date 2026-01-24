@@ -4,7 +4,7 @@
 
 In this exercise, the land use classes are predicted with a UNET model using Pytorch and Torchgeo libraries.
 
-The data used for the exercise is pre-loaded in the folder. In case you are interested, you can take a look at the data loading notebook [raster_data_preparation.ipynb](raster_data_preparation.ipynb).
+The data used for the exercise is pre-loaded in the data folder. In case you are interested, you can take a look at the data loading notebook [raster_data_preparation.ipynb](raster_data_preparation.ipynb).
 
 Satellite images are usually too big for CNN models as such, se we need to tile them to smaller tiles for training the model and also later for prediction. Torchgeo has very nice functionality for tiling and sampling the data for training. Unfortunatelly similar functionality does not exist for inference.
 
@@ -22,7 +22,7 @@ This exercise includes two steps:
     * A black window with SSH connection to Puhti opens, now Linux commands should be used.
     * The shell opens in home directory, to access the files, change working 
     directory:
-        * `cd /scratch/project_xxxxxxxxx/students/$USER/fmi/land_segmentation`
+        * `cd /scratch/project_462001233/$USER/fmi/land_segmentation`
     * See that you are in the right folder:
         * `ls -l`.
         * It should list the files that you see also in Jupyter File panel.
