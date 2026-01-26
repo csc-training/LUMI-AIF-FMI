@@ -57,8 +57,7 @@ git clone https://github.com/csc-training/lumi-aif-fmi.git
    	* (Do not select any of the check-boxes below.)
 * Click launch and wait until granted resources 
 * Click "Connect to Jupyter"
-* Open Terminal and clone exercise materials
-* Open in JupyterLab folder `students/<your_username>`
+* Open the cloned exercise folder under your `<your_username>` in JupyterLab
 
 
 > [!TIP]
