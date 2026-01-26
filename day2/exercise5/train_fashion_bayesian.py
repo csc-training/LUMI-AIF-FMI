@@ -1,10 +1,13 @@
 import os
+
 import torch
 from torch import nn
 from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision.transforms import ToTensor
+
 from torch_blue import vi
+
 from tqdm import tqdm
 
 
@@ -91,7 +94,7 @@ def main():
 
 
     for epoch in range(epochs):
-        print("Epoch {epoch}:")
+        print(f"Epoch {epoch}:")
         train(train_dl, model, loss_fn, optimizer)
         test(train_dl, model, loss_fn, predictive_distribution)
 
