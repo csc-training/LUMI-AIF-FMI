@@ -65,13 +65,13 @@ def main():
     train_ds = datasets.FashionMNIST(
         root=data_root,
         train=True,
-        download=True,
+        download=False,
         transform=ToTensor(),
     )
     test_ds = datasets.FashionMNIST(
         root=data_root,
         train=False,
-        download=True,
+        download=False,
         transform=ToTensor(),
     )
 
