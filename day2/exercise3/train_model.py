@@ -246,7 +246,7 @@ def main():
     tile_size = 512 
     sampler_length = 1600 # Sampler length for dataloader
     num_epochs = 50 
-    num_workers = 32
+    num_workers = 8
     # Set computing device: GPU or CPU
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
