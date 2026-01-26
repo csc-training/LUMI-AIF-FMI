@@ -2,6 +2,6 @@
 
 ## Dataset
 
-We are using the `California Housing Prices` [kaggle](https://www.kaggle.com/datasets/camnugent/california-housing-prices) dataset for a regression task.
+We are switching from MNIST to [FashionMNIST](https://docs.pytorch.org/vision/0.24/generated/torchvision.datasets.FashionMNIST.html) for this task.
 
 ## 
