@@ -46,5 +46,5 @@ This exercise includes two steps:
     *  Visualisation of the training and validation loss
 
 ## Inference and evaluation of the model visually and by calculating performance metrics.
-* Open Jupyter as described in [main Readme](../Readme.md)
+* Open Jupyter as described in [main Readme](../../README.md)
 * Open [inference_and_evaluation.ipynb](inference_and_evaluation.ipynb)
