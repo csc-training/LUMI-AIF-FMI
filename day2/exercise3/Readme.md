@@ -19,10 +19,10 @@ This exercise includes two steps:
 * Change to the code whether you want to train a ResNet or the UNET
 * Submit Python script as SLURM batch job in a supercomputer:
     * Open Terminal to login-node: Open Apps -> Login node shell
-    * A black window with SSH connection to Puhti opens, now Linux commands should be used.
+    * A black window with SSH connection to Mahti opens, now Linux commands should be used.
     * The shell opens in home directory, to access the files, change working 
     directory:
-        * `cd /scratch/project_462001233/$USER/fmi/land_segmentation`
+        * `cd /scratch/project_2017263/$USER/lumi-aif-fmi/day2/exercise3`
     * See that you are in the right folder:
         * `ls -l`.
         * It should list the files that you see also in Jupyter File panel.
@@ -40,7 +40,7 @@ This exercise includes two steps:
         * This does not update, if file gets more rows.
     * It is possible to see job's state (waiting, running, finished) and used resources with
         * `sacct -o jobid,partition,state,reqmem,maxrss,averss,elapsed`
-        * (In CSC Puhti: `seff 1212121212`)
+        * (In CSC Mahti: `seff 1212121212`)
 * There should be new files in the `model_training` folder:
     *  The trained model as a .pt file
     *  Visualisation of the training and validation loss
@@ -48,3 +48,4 @@ This exercise includes two steps:
 ## Inference and evaluation of the model visually and by calculating performance metrics.
 * Open Jupyter as described in [main Readme](../../README.md)
 * Open [inference_and_evaluation.ipynb](inference_and_evaluation.ipynb)
+* Results are stored in 'inference' folder
