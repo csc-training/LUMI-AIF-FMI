@@ -29,7 +29,7 @@ import matplotlib.pyplot as plt
 from torch import amp
 
 # Models
-from UNET_model import UNET
+from unet_model import UNET
 from resnet_model import ResNet
 
 
