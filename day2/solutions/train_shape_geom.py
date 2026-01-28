@@ -12,9 +12,7 @@ from torch_geometric import nn as gn
 from tqdm import tqdm
 
 
-# data_root = f"/scratch/{os.environ['SLURM_JOB_ACCOUNT']}/data/ShapeNet"
 data_root = f"/scratch/project_2017263/data/ModelNet"
-
 
 
 class Model(nn.Module):
